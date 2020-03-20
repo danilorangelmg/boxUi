@@ -16,7 +16,9 @@
     {
       "type": "INPUT",
       "label": "Insert value1:",
-      "errorMessage": "erro",
+      "validationType": "MINOR_AGE",
+      "inputType": "NUMBER",
+      "errorMessage": "O numero deve ser maior que 18",
       "value": null,
       "id": "age"
     },

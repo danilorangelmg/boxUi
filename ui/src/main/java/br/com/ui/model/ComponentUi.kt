@@ -1,4 +1,4 @@
-package br.com.ui
+package br.com.ui.model
 
 import br.com.domain.Type
 import br.com.ui.view.ButtonItem

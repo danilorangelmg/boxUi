@@ -8,6 +8,7 @@ data class Component(
     val label: String? = null,
     val gravity: Gravity? = Gravity.NONE,
     val errorMessage: String? = null,
+    val inputType: InputType = InputType.NONE,
     val url: String? = null,
     val children: List<Component> = listOf()
 )
@@ -43,4 +44,10 @@ enum class Gravity {
     CENTER,
     RIGHT,
     LEFT
+}
+
+enum class InputType {
+    NONE,
+    NUMBER,
+    NORMAL //todo verify
 }

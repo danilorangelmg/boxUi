@@ -1,4 +1,4 @@
-package br.com.ui
+package br.com.ui.util
 
 import android.content.Context
 import android.view.View

@@ -13,11 +13,9 @@ class BoxUi: KoinComponent {
 
     fun start(appActivity: AppCompatActivity, layoutId: Int = android.R.id.content) {
         GlobalScope.launch {
-
             appActivity.supportFragmentManager.beginTransaction()
                 .replace(layoutId, ComponentFragment(repository.getComponent())).addToBackStack(null)
                 .commitAllowingStateLoss()
         }
-
     }
 }

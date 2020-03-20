@@ -32,6 +32,7 @@ class ComponentRepositoryImpl(val storage: ComponentStorage) : ComponentReposito
             label = componentResponse.label,
             gravity = Gravity.valueOf(componentResponse.gravity.name),
             errorMessage = componentResponse.errorMessage,
+            inputType = InputType.valueOf(componentResponse.inputType.name),
             url = componentResponse.url,
             children = componentResponse.children.map { child ->
                 parseComponent(child)

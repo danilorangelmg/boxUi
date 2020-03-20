@@ -32,8 +32,8 @@ class ButtonItem(private val component: Component) : Item() {
 
     override fun getLayout(): Int = R.layout.button_layout
 
-    fun register(submitValidation: ButtonSubmitValidation) {
-        submitValidationList.add(submitValidation)
+    fun register(submitValidation: List<ButtonSubmitValidation>) {
+        submitValidation.takeIf { it.isNotEmpty() }?.run { submitValidationList.addAll(submitValidation) }
     }
 
     fun submit(submit: ButtonSubmit) {
