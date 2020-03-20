@@ -10,6 +10,7 @@ import br.com.domain.Component
 import br.com.domain.Type
 import br.com.ui.model.ComponentUi
 import br.com.ui.util.FooterLinearLayoutManager
+import br.com.ui.util.Submit
 import br.com.ui.view.ButtonItem
 import br.com.ui.view.InputItem
 import com.xwray.groupie.GroupAdapter
@@ -19,7 +20,9 @@ import kotlinx.android.synthetic.main.component_fragment.*
 import java.util.*
 import kotlin.reflect.KClass
 
-class ComponentFragment(private val component: Component) : Fragment() {
+internal class ComponentFragment(private val component: Component, val submit: Submit) : Fragment() {
+
+    private lateinit var groupAdapter: CustomGroupAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,6 +33,22 @@ class ComponentFragment(private val component: Component) : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        groupAdapter = createAdapter()
+
+        recyclerView.apply {
+            layoutManager = if (component.children.any { it.type == Type.BUTTON_SUBMIT }) {
+                FooterLinearLayoutManager(context)
+            } else {
+                GridLayoutManager(context, groupAdapter.spanCount).apply {
+                    spanSizeLookup = groupAdapter.spanSizeLookup
+                }
+            }
+            adapter = groupAdapter
+        }
+
+    }
+
+    private fun createAdapter(): CustomGroupAdapter {
         val groupAdapter = CustomGroupAdapter().apply {
             spanCount = 12
         }
@@ -48,25 +67,16 @@ class ComponentFragment(private val component: Component) : Fragment() {
         }
 
         groupAdapter.getItemsByType(ButtonItem::class.java).takeIf { it.isNotEmpty() }?.run {
-            (this[0] as ButtonItem).register(groupAdapter.getItemsByType(InputItem::class.java).map { it as InputItem })
-        }
-
-        recyclerView.apply {
-            layoutManager = if (component.children.any { it.type == Type.BUTTON_SUBMIT }) {
-                FooterLinearLayoutManager(context)
-            } else {
-                GridLayoutManager(context, groupAdapter.spanCount).apply {
-                    spanSizeLookup = groupAdapter.spanSizeLookup
-                }
+            (this[0] as ButtonItem).apply {
+                register(groupAdapter.getItemsByType(InputItem::class.java).map { it as InputItem })
+                submit(submit)
             }
-            adapter = groupAdapter
         }
-
+        return groupAdapter
     }
-
 }
 
-class CustomGroupAdapter : GroupAdapter<GroupieViewHolder>() {
+internal class CustomGroupAdapter : GroupAdapter<GroupieViewHolder>() {
     private val items = LinkedList<Item>()
 
     fun add(item: Item) {
@@ -76,5 +86,4 @@ class CustomGroupAdapter : GroupAdapter<GroupieViewHolder>() {
 
     fun getItemsByType(clazz: Class<*>) =
         items.map { it }.filter { it.javaClass == clazz }
-
 }

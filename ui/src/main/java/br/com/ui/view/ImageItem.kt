@@ -1,8 +1,6 @@
 package br.com.ui.view
 
-import android.R.attr.gravity
 import android.widget.FrameLayout
-import android.widget.LinearLayout
 import br.com.domain.Component
 import br.com.domain.Gravity
 import br.com.ui.R
@@ -10,7 +8,6 @@ import br.com.utils.loadImageUrl
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.image_layout.view.*
-
 
 class ImageItem(private val component: Component) : Item() {
 

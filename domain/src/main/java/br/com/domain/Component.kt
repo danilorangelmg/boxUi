@@ -9,6 +9,8 @@ data class Component(
     val gravity: Gravity? = Gravity.NONE,
     val errorMessage: String? = null,
     val inputType: InputType = InputType.NONE,
+    val path: String? = null,
+    val navigateTo: String? = null,
     val url: String? = null,
     val children: List<Component> = listOf()
 )
@@ -20,7 +22,8 @@ enum class Type {
     BUTTON,
     BUTTON_SUBMIT,
     IMAGE,
-    CONTAINER
+    CONTAINER,
+    NAV_CONTAINER
 }
 
 enum class Orientation {

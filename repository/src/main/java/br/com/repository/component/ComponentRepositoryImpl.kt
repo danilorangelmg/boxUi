@@ -34,6 +34,8 @@ class ComponentRepositoryImpl(val storage: ComponentStorage) : ComponentReposito
             errorMessage = componentResponse.errorMessage,
             inputType = InputType.valueOf(componentResponse.inputType.name),
             url = componentResponse.url,
+            path = componentResponse.path,
+            navigateTo = componentResponse.navigateTo,
             children = componentResponse.children.map { child ->
                 parseComponent(child)
             }
