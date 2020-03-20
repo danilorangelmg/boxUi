@@ -1,0 +1,28 @@
+{
+  "type": "CONTAINER",
+  "orientation": "VERTICAL",
+  "children": [
+    {
+      "type": "IMAGE",
+      "gravity": "CENTER",
+      "url": "https://www.petlove.com.br/images/breeds/193436/profile/original/beagle-p.jpg",
+      "description": "Minha imagem"
+    },
+    {
+      "type": "LABEL",
+      "gravity": "CENTER",
+      "value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultrices elit sed est fringilla tincidunt. Nunc sit amet odio eget enim finibus finibus. Donec sollicitudin sapien eu metus porttitor dapibus. Cras enim elit, aliquet in imperdiet sed, scelerisque et nulla. Aliquam luctus scelerisque neque. Proin vel eros purus. Curabitur volutpat id mi a sagittis. Integer at posuere purus, rhoncus imperdiet ligula. Fusce suscipit interdum convallis. Nam at nibh ut dui dictum aliquet eu a sapien."
+    },
+    {
+      "type": "INPUT",
+      "label": "Insert value1:",
+      "errorMessage": "erro",
+      "value": null,
+      "id": "age"
+    },
+    {
+      "type": "BUTTON_SUBMIT",
+      "value": "button1"
+    }
+  ]
+}

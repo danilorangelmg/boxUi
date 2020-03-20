@@ -1,0 +1,8 @@
+rootProject.name='boxUi'
+include ':app'
+include ':network'
+include ':storage'
+include ':repository'
+include ':ui'
+include ':utils'
+include ':domain'
