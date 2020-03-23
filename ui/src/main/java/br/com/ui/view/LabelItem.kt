@@ -19,7 +19,6 @@ class LabelItem(private val component: Component) : Item() {
                 else -> 0
             }
         }
-
     }
 
     override fun getLayout(): Int = R.layout.label_layout

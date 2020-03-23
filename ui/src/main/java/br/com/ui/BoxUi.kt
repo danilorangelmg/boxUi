@@ -35,7 +35,7 @@ class BoxUi : KoinComponent, CoroutineScope {
                 }
 
             })).addToBackStack(null)
-            .commitAllowingStateLoss()
+            .commit()
     }
 
     override val coroutineContext: CoroutineContext
