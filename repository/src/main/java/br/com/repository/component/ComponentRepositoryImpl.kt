@@ -36,6 +36,7 @@ class ComponentRepositoryImpl(val storage: ComponentStorage) : ComponentReposito
             url = componentResponse.url,
             path = componentResponse.path,
             navigateTo = componentResponse.navigateTo,
+            title = componentResponse.title,
             children = componentResponse.children.map { child ->
                 parseComponent(child)
             }

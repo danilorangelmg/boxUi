@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import br.com.domain.Component
@@ -17,8 +18,8 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.kotlinandroidextensions.GroupieViewHolder
 import com.xwray.groupie.kotlinandroidextensions.Item
 import kotlinx.android.synthetic.main.component_fragment.*
+import kotlinx.android.synthetic.main.content_component_fragment.*
 import java.util.*
-import kotlin.reflect.KClass
 
 internal class ComponentFragment(private val component: Component, val submit: Submit) : Fragment() {
 
@@ -33,6 +34,15 @@ internal class ComponentFragment(private val component: Component, val submit: S
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (activity as AppCompatActivity).apply {
+            setSupportActionBar(toolbar)
+            tv_toolbar_title.text = component.title
+            supportActionBar?.apply {
+                setDisplayShowTitleEnabled(false)
+                setDisplayHomeAsUpEnabled(true);
+            }
+        }
+
         groupAdapter = createAdapter()
 
         recyclerView.apply {

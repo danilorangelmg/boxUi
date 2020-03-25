@@ -11,6 +11,7 @@ data class Component(
     val inputType: InputType = InputType.NONE,
     val path: String? = null,
     val navigateTo: String? = null,
+    val title: String? = null,
     val url: String? = null,
     val children: List<Component> = listOf()
 )

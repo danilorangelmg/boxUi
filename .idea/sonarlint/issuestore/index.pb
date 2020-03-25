@@ -71,11 +71,15 @@ X
 ,ui/src/main/java/br/com/ui/view/LabelItem.kt,1/7/17e9ec2de3123187b0eeefb2505a57b2ef25e559
 \
 ,ui/src/main/java/br/com/ui/view/ImageItem.kt,9/2/923457283fd398ec94c65d8b312be7efa6c9d535
-X
-(ui/src/main/java/br/com/ui/BoxAdapter.kt,7/e/7eb15918508c749fa8e0425c74ebd362d0c52288
-f
-6ui/src/main/java/br/com/ui/FooterLinearLayoutManger.kt,2/4/24756bd5337700704c9633312892d33a69247a5d
-Y
-)ui/src/main/java/br/com/ui/ComponentUi.kt,c/9/c98a60ec25ddef17d1673d2f12f4bb388ea2a83d
 _
 /ui/src/main/java/br/com/ui/ComponentFragment.kt,d/a/da25a306dbbaf5fbe36e1999a62b0571d2e89306
+_
+/ui/src/main/java/br/com/ui/model/ComponentUi.kt,7/3/7320605dfb3f24d70acec01f5ababcd161013148
+l
+<ui/src/main/java/br/com/ui/util/FooterLinearLayoutManager.kt,c/b/cb8f0a6e9d491753af97e2c2b27d3a8200a00905
+Y
+)ui/src/main/java/br/com/ui/util/Submit.kt,6/6/6643cc6c92aec5202a47c28e014d8255e32ec355
+O
+ui/src/main/AndroidManifest.xml,7/e/7e4192338b954ad95f10980791fc02ba667919d3
+f
+6app/src/main/java/br/com/boxui/ui/ComponentActivity.kt,4/e/4e3a2bac8bedc261ee1e40836d46dd6122a566d3
