@@ -19,7 +19,7 @@ class ComponentRepositoryImpl(val storage: ComponentStorage) : ComponentReposito
                 }
             }
         } catch (e: Exception) {
-            throw BusinessException(e.message)
+            throw BusinessException("Erro ao buscar dados, tente novamente mais tarde!")
         }
     }
 
