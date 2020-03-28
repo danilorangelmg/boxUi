@@ -1,17 +1,18 @@
 package br.com.ui
 
-import android.content.Context
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.com.domain.Component
 import br.com.repository.component.ComponentRepository
 import br.com.repository.helper.exception.BusinessException
 import br.com.ui.util.Submit
-import kotlinx.coroutines.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 import kotlin.coroutines.CoroutineContext
-import kotlin.coroutines.EmptyCoroutineContext
 
 class BoxUi : KoinComponent, CoroutineScope {
 
@@ -48,10 +49,12 @@ class BoxUi : KoinComponent, CoroutineScope {
 
     override val coroutineContext: CoroutineContext
         get() = Job() + Dispatchers.Main
-
 }
 
-fun CoroutineScope.launchWithError(context: AppCompatActivity, func: suspend CoroutineScope.() -> Unit) {
+fun CoroutineScope.launchWithError(
+    context: AppCompatActivity,
+    func: suspend CoroutineScope.() -> Unit
+) {
     launch {
         try {
             func()
